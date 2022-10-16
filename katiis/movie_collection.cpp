@@ -14,43 +14,51 @@ const int maxn = 1e7;
 
 void solve()
 {
-    int n=3;
-    vector <int> arr;
-    for(int i=1; i<=n; i++)
-    {
-        arr.push_back(i);
-    }
-    for(auto i:arr)
-    {
-        cout<<i<<" ";
-    }
-    cout<<endl;
-    int a=3;
-    int count=0;
-    int tmp= arr[a];
-    cout<<tmp<<endl;
-    for(int i=tmp; i>1; i--)
-    {
-        if(tmp == arr[n]) break;
-        else count++;
-    }
+    int cases;
+    cin >> cases;
+    while(cases--){
+        int n;
+        vector <int> arr;
+        cin>>n;
 
-    arr.erase(find(arr.begin(),arr.end(),a));
-    for(auto i:arr)
-    {
-        cout<<i<<" ";
-    }
-    cout<<endl;
-    arr.push_back(a);
-    for(auto i:arr)
-    {
-        cout<<i<<" ";
-    }
-    cout<<endl;
-    cout<<count<<endl;
+        for(int i=n; i>0; i--)
+        {
+            arr.push_back(i);
+        }
 
-
+        for(auto i:arr)
+        {
+            cout<<i<<" ";
+        }
+        int c;
+        cin>>c;
+        int count=0;
+        while(c--){
+            int a;
+            cin>>a;
+            int pos=0;
+            for(int i=0; i<n; i++){
+                if(arr[i]==a){
+                    continue;
+                }
+                pos++;
+            }
+            int tmp= arr[pos];
+            cout<<tmp<<endl;
+            
+            while(tmp != '\0') count++;
     
+            cout<<"numero de pelis " <<count-1<<endl;
+            arr.erase(find(arr.begin(),arr.end(),a));
+            arr.push_back(a);
+            for(auto i:arr)
+            {
+                cout<<i<<" ";
+            }
+            count=0;
+            cout<<endl;
+        }
+    }
 }
 int main() 
 {
