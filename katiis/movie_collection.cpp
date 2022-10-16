@@ -15,31 +15,40 @@ const int maxn = 1e7;
 void solve()
 {
     int n=3;
-    int arr[n];
+    vector <int> arr;
     for(int i=1; i<=n; i++)
     {
-        arr[i]=i;
+        arr.push_back(i);
     }
-    for(int i=1; i<=n; i++)
+    for(auto i:arr)
     {
-        cout<<arr[i]<<" ";
+        cout<<i<<" ";
     }
-    int r;
-    int tmp;
-    for(int i=1; i<=n; i++)
+    cout<<endl;
+    int a=3;
+    int count=0;
+    int tmp= arr[a];
+    cout<<tmp<<endl;
+    for(int i=tmp; i>1; i--)
     {
-        if(r==arr[i])
-        {
-            tmp = r;
-            for(int j=1; j<n; j++)
-            {
-                arr[j]=arr[j+1];
-                tmp = arr[1];
+        if(tmp == arr[n]) break;
+        else count++;
+    }
 
-            }
-            cout<<tmp<<" ";
-        }
+    arr.erase(find(arr.begin(),arr.end(),a));
+    for(auto i:arr)
+    {
+        cout<<i<<" ";
     }
+    cout<<endl;
+    arr.push_back(a);
+    for(auto i:arr)
+    {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    cout<<count<<endl;
+
 
     
 }
